@@ -1,0 +1,22 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+:root{
+  --color-card: #AED6F1;
+  --color-list: white;
+  --color-card-dark: #5DADE2;
+}
+
+body, html, #root{
+  height: 100%;
+  margin: 0;
+}
+
+body{
+  background-image: url('./img/home/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+}

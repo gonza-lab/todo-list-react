@@ -1,0 +1,17 @@
+.modificable{
+  border-radius: 6px;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  border: 2px solid var(--color-card-dark);
+  transition: border 0.3s, background-color 0.3s;
+  cursor: text;
+}
+
+.modificable:read-only{
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
