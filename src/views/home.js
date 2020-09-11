@@ -30,21 +30,51 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: listsLocal,
+      lists: /* listsLocal */ JSON.parse(localStorage.lists),
     };
     this.handleChangeList = this.handleChangeList.bind(this);
+    this.addList = this.addList.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
 
   handleChangeList(list) {
     const idList = list.id;
     const { lists } = this.state;
     const index = lists.findIndex((list) => {
-      return (list.id === idList);
+      return list.id === idList;
     });
-    console.log(index);
     lists[index] = list;
 
     this.setState({ lists });
+    localStorage.lists = JSON.stringify(lists);
+  }
+
+  addList() {
+    const { lists } = this.state;
+    const lastId = lists[lists.length - 1].id;
+
+    lists.push({
+      id: lastId + 1,
+      title: 'Nueva lista',
+      tasks: [{ id: 0, description: '...' }],
+    });
+
+    this.setState({ lists });
+    localStorage.lists = JSON.stringify(lists);
+  }
+
+  deleteList(idDelete) {
+    const { lists } = this.state;
+
+    const indexDelete = lists.findIndex((list) => {
+      return list.id === idDelete;
+    });
+
+    lists.splice(indexDelete, 1);
+    this.setState({
+      lists,
+    });
+    localStorage.lists = JSON.stringify(lists);
   }
 
   render() {
@@ -52,8 +82,19 @@ class Home extends Component {
     return (
       <main>
         {lists.map((list) => (
-          <List key={list.id} list={list} onChange={this.handleChangeList} />
+          <List
+            key={list.id}
+            list={list}
+            onChange={this.handleChangeList}
+            onDelete={this.deleteList}
+          />
         ))}
+        <input
+          onClick={this.addList}
+          className="addList"
+          value="+ Añadir lista"
+          type="button"
+        />
       </main>
     );
   }

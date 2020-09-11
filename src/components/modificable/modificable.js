@@ -5,7 +5,7 @@ class Modificable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      focus: false,
+      focus: this.props.blur,
     };
 
     this.handleBlur = this.handleBlur.bind(this);
@@ -33,7 +33,7 @@ class Modificable extends Component {
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
         readOnly={!focus}
-        className="modificable"
+        className={'modificable ' + (this.props.className || '')}
         type="text"
         value={value}
       />

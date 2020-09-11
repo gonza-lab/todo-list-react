@@ -3,9 +3,10 @@
 }
 
 :root{
-  --color-card: #AED6F1;
+  --color-card: rgb(174, 214, 241);
   --color-list: white;
   --color-card-dark: #5DADE2;
+  --color-secondary: rgb(118, 118, 118);
 }
 
 body, html, #root{

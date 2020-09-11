@@ -1,12 +1,47 @@
-.list{
+.list {
+  position: relative;
   background-color: var(--color-list);
   margin: 0 1em;
   border-radius: 10px;
   padding: 1em;
-  max-width: 350px;
-  width: 100%;
+  width: 350px;
 }
 
-.list > h2{
-  margin: 0;
+.list .list-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.list .addCard {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(210, 210, 210);
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(118, 118, 118);
+  transition: background-color 0.5s;
+  outline: none;
+}
+
+.list .addCard:hover {
+  background-color: rgba(200, 200, 200, 1);
+}
+
+.list .deleteList {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-secondary);
+  border: none;
+  transition: opacity 0.3s;
+  opacity: 0.2;
+  outline: none;
+}
+
+.list .deleteList:hover {
+  opacity: 1;
 }
