@@ -28,7 +28,7 @@ const listsLocal = [
 ];
 
 if(!localStorage.lists){
-  localStorage.lists = listsLocal;
+  localStorage.lists = JSON.stringify(listsLocal);
 }
 
 ReactDOM.render(<Home />, document.getElementById('root'));
